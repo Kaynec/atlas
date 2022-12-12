@@ -7,8 +7,18 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Button: typeof import('./src/components/Button.vue')['default']
+    Carousel: typeof import('./src/components/Carousel.vue')['default']
+    FirstSection: typeof import('./src/components/RoshdCenter/FirstSection.vue')['default']
+    FlexBetween: typeof import('./src/components/RoshdCenter/FlexBetween.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
+    HomeFirstCardContainer: typeof import('./src/components/HomePage/HomeFirstCardContainer.vue')['default']
+    HomeSecondContainer: typeof import('./src/components/HomePage/HomeSecondContainer.vue')['default']
+    HomeThirdContainer: typeof import('./src/components/HomePage/HomeThirdContainer.vue')['default']
+    MenuBar: typeof import('./src/components/MenuBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TextWithLightBottomBorder: typeof import('./src/components/Shared/TextWithLightBottomBorder.vue')['default']
     TheCounter: typeof import('./src/components/TheCounter.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheInput: typeof import('./src/components/TheInput.vue')['default']

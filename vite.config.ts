@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
@@ -12,7 +10,7 @@ import VueMacros from 'unplugin-vue-macros/vite'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
   plugins: [
@@ -49,11 +47,7 @@ export default defineConfig({
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
+
     Unocss(),
   ],
-
-  // https://github.com/vitest-dev/vitest
-  test: {
-    environment: 'jsdom',
-  },
 })
