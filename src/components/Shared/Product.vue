@@ -1,39 +1,30 @@
 <script setup lang="ts">
-import { ICore } from "@/types";
-
-const { item, coloredBorders = true } = defineProps<{
+const { coloredBorders = true, imageTop = true } = defineProps<{
+  src: string;
   coloredBorders?: boolean;
-  item: ICore;
+  imageTop?: boolean;
 }>();
-console.log(item);
+
+console.log(imageTop, coloredBorders);
 </script>
 
 <template>
   <div
-    class="grid grid-cols-3 min-h-55 px-2 bg-white rounded-xl shadow-xl items-center justify-center border-0.1px border-#ddd rounded-10px text-sm max-h-45"
+    class="grid grid-cols-3 min-h-45 px-2 bg-white rounded-xl shadow-xl items-center justify-center border-0.1px border-#ddd rounded-10px text-sm max-h-45"
     :class="{ 'colored-borders': coloredBorders }"
   >
     <div h-full p-3 flex items-center>
-      <img
-        :src="item.image"
-        alt="card img"
-        width="120"
-        height="120"
-        rounded-full
-        aspect-1
-      />
+      <img :src="src" alt="card img" width="120" height="120" />
     </div>
     <div class="flex flex-col gap-5">
-      <span> موسس : </span>
-      <span> عنوان هسته : </span>
-      <span> توضیحات کوتاه : </span>
+      <span> حوزه فناوری : </span>
+      <span> نام واحد دانشگاهی : </span>
+      <span> سال تاسیس : </span>
     </div>
     <div class="flex flex-col gap-5">
-      <span font="700"> {{ item.founder }} </span>
-      <span font="700"> {{ item.name }} </span>
-      <span font="700">
-        {{ item.description?.replace(/^(.{35}[^\s]*).*/, "$1") }}
-      </span>
+      <span font="700"> تبلیغات </span>
+      <span font="700"> لورم ایپسوم </span>
+      <span font="700"> ۱۳۹۸ </span>
     </div>
   </div>
 </template>

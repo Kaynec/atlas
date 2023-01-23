@@ -16,12 +16,12 @@ import imgThree from "@/assets/img/card-img/3.png";
       class="main grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mb-25 content-start"
     >
       <!--  -->
-      <CardWithImageTop :coloredBorders="false" :src="imgOne" />
-      <CardWithImageTop :coloredBorders="false" :src="imgTwo" />
-      <CardWithImageTop :coloredBorders="false" :src="imgThree" />
-      <CardWithImageTop :coloredBorders="true" :src="imgOne" />
-      <CardWithImageTop :coloredBorders="true" :src="imgTwo" />
-      <CardWithImageTop :coloredBorders="true" :src="imgThree" />
+      <Product :coloredBorders="false" :src="imgOne" />
+      <Product :coloredBorders="false" :src="imgTwo" />
+      <Product :coloredBorders="false" :src="imgThree" />
+      <Product :coloredBorders="true" :src="imgOne" />
+      <Product :coloredBorders="true" :src="imgTwo" />
+      <Product :coloredBorders="true" :src="imgThree" />
       <!--  -->
     </aside>
     <aside class="aside">

@@ -36,7 +36,9 @@ const showMobileHeader = ref(false);
       >
         <li>
           <router-link
-            to="home"
+            :to="{
+              name: 'Home',
+            }"
             class="text-lg font-500"
             exact-active-class="!text-primary"
             transition-all
@@ -69,6 +71,36 @@ const showMobileHeader = ref(false);
             transition-350
           >
             صفحه محصولات
+          </router-link>
+        </li>
+        <li flex items-center gap-1>
+          <MenuBar
+            :links="[
+              {
+                name: 'نانو',
+                path: 'DaneshBonyan',
+              },
+              {
+                name: 'علوم شناختی',
+                path: 'DaneshBonyan',
+              },
+              {
+                name: 'فناوری اطلاعات (it)',
+                path: 'DaneshBonyan',
+              },
+            ]"
+          />
+
+          <router-link
+            :to="{
+              name: 'DaneshBonyan',
+            }"
+            class="text-xs font-500"
+            exact-active-class="!text-primary"
+            transition-all
+            transition-350
+          >
+            دسته بندی محصوالت
           </router-link>
         </li>
       </ul>
@@ -107,7 +139,9 @@ const showMobileHeader = ref(false);
 
           <li>
             <router-link
-              to="home"
+              :to="{
+                name: 'Home',
+              }"
               class="text-xs font-500"
               exact-active-class="text-white b-b-red b-b-1 pb-2 text-right"
               transition-all
@@ -118,7 +152,9 @@ const showMobileHeader = ref(false);
           </li>
           <li>
             <router-link
-              to="home"
+              :to="{
+                name: 'Home',
+              }"
               class="text-xs font-500"
               exact-active-class="text-white b-b-red b-b-1 pb-2 text-right"
               transition-all
@@ -146,7 +182,9 @@ const showMobileHeader = ref(false);
             />
 
             <router-link
-              to="home"
+              :to="{
+                name: 'DaneshBonyan',
+              }"
               class="text-xs font-500"
               exact-active-class="!text-primary"
               transition-all

@@ -46,19 +46,27 @@ const { data: items, isLoading } = useQuery({
     </div>
     <div p="!5">
       <custom-carousel
-        :slides-per-view="3"
+        :slides-per-view="breakPoint"
         container-custom
         mx-auto
         flex
         :custom-navigation="true"
       >
-        <Course
-          :label="item.name"
-          :img="item.poster!"
-          :description="item.description!"
+        <swiper-slide
+          self-stretch
+          h="!90"
+          items-center
+          justify-between
           v-for="item in items"
           :key="item.id"
-        />
+          class="card gap-3"
+        >
+          <Course
+            :label="item.name"
+            :img="item.poster!"
+            :description="item.description!"
+          />
+        </swiper-slide>
       </custom-carousel>
     </div>
   </section>

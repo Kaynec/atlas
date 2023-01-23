@@ -94,34 +94,23 @@ const rotation = ref(0);
 </template>
 
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref } from "vue";
 import { useQuery } from "@tanstack/vue-query";
+import { GrowthCenter } from "@/types";
 //
-interface Item {
-  id: number;
-  name: string;
-  description: string;
-  manager_image: string;
-  rules: string;
-  manager_name: string;
-  address: string;
-  latitude: number;
-  longitude: number;
-  cordinates?: number[]; // If you want to include the Point Object that you created in the setup
-}
 
 const { data: items, isLoading } = useQuery({
   queryFn: async () => {
     const { data } = await useMyFetch("growth-center/center-user/").json();
-    return data.value as Item[];
+    return data.value as GrowthCenter[];
   },
   queryKey: ["roshd-center"],
-  select: (data: Item[]) => {
+  select: (data: GrowthCenter[]) => {
     if (!data) return data;
     data.forEach((element) => {
       element.cordinates = [element.longitude, element.latitude];
     });
-    return data as Item[];
+    return data as GrowthCenter[];
   },
 });
 

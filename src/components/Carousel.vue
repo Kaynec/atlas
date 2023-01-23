@@ -27,7 +27,7 @@ const { data: items, isLoading } = useQuery({
     v-loading.lock="isLoading"
   >
     <swiper-slide v-for="item in items" :key="item.id" class="relative w-full">
-      <img :src="item.poster" class="w-full" object-cover />
+      <img :src="item.poster" class="w-full" max-h="90vh" object-cover />
       <div
         class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
       ></div>

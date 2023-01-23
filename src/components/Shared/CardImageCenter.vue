@@ -1,7 +1,19 @@
 <script setup lang="ts">
-defineProps<{
-  src: string;
+import { IEvent } from "@/types";
+
+const { item } = defineProps<{
+  item: IEvent;
 }>();
+
+const parsedDate = item.start_date.replace("T", " ").replace("Z", "");
+
+const dateofYear = new Intl.DateTimeFormat("fa-Fa").format(
+  new Date(parsedDate.split(" ")[0])
+);
+let timeofYear = new Intl.DateTimeFormat("fa-Fa", {
+  hour: "2-digit",
+  hourCycle: "h24",
+}).format(new Date(`${parsedDate.split(" ")[0]} ${parsedDate.split(" ")[1]}`));
 </script>
 
 <template>
@@ -10,19 +22,22 @@ defineProps<{
   >
     <div mx-auto flex-center-row max-h-25>
       <img
-        :src="src"
+        :src="item.image"
         alt="image src"
         width="150"
         height="150"
         w-45
+        h-45
+        object-cover
+        rounded-full
         translate-y="-15"
       />
     </div>
-    <FlexBetween label="نوع رویداد" value="دوره آموزشی" />
-    <FlexBetween label=" تاریخ برگزاری" value="1401/09/12" />
-    <FlexBetween label=" محل برگزاری" value="تهران" />
-    <FlexBetween label="عنوان رویداد" value="مغز متفکر" />
-    <FlexBetween border="none" label="ساعت برگزاری" value="12:00 ظهر" />
+    <!-- <FlexBetween label="نوع رویداد" value="دوره آموزشی" /> -->
+    <FlexBetween label="عنوان رویداد" :value="item.title" />
+    <FlexBetween label=" تاریخ برگزاری" :value="dateofYear" />
+    <FlexBetween border="none" label="ساعت برگزاری" :value="timeofYear" />
+    <!-- <FlexBetween label=" محل برگزاری" value="تهران" /> -->
   </div>
 </template>
 

@@ -24,6 +24,8 @@ declare module '@vue/runtime-core' {
     HomeThirdContainer: typeof import('./src/components/HomePage/HomeThirdContainer.vue')['default']
     Loader: typeof import('./src/components/Loader.vue')['default']
     MenuBar: typeof import('./src/components/MenuBar.vue')['default']
+    NewsComponent: typeof import('./src/components/Shared/NewsComponent.vue')['default']
+    Product: typeof import('./src/components/Shared/Product.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchComponent: typeof import('./src/components/DaneshBonyan/SearchComponent.vue')['default']

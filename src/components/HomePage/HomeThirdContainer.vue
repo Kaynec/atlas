@@ -1,3 +1,20 @@
+<script lang="ts" setup>
+import { INews } from "@/types";
+import { useQuery } from "@tanstack/vue-query";
+
+//
+const { data: items, isLoading } = useQuery({
+  queryFn: async () => {
+    const { data } = await useMyFetch(
+      "growth-center/recent-news-list//"
+    ).json();
+    return data.value as INews[];
+  },
+  queryKey: ["recent-news"],
+});
+//
+</script>
+<!--  -->
 <template>
   <section
     w-full
@@ -13,8 +30,9 @@
   >
     <div
       class="container-custom mx-auto mx-auto flex flex-col gap-3 pt-4 mx-auto flex flex-col text-center"
+      v-loading.lock="isLoading"
     >
-      <h1 font-700 text-lg>آخرین رویداد ها</h1>
+      <h1 font-700 text-lg>آخرین اخبار</h1>
       <!--  Circle Inside It -->
       <div w-full bg-primary h-1px my-3 flex-center-row>
         <div class="relative w-4 h-4 bg-white rounded-full">
@@ -39,88 +57,9 @@
           duration-700
           py-15
         >
-          <div
-            v-motion-slide-visible-left
-            class="card flex-center-column gap-6"
-          >
-            <img
-              src="@/assets/img/event.png"
-              width="250"
-              height="200"
-              w-full
-              alt="first item"
-            />
-            <h1 font-700>رویداد شماره 1</h1>
-            <p text-xs font-400>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است.
-            </p>
-            <a font-700 text-sm flex-center-row class="btn w-35 btn-primary">
-              مشاهده
-            </a>
-          </div>
-          <div
-            v-motion-slide-visible-left
-            class="card flex-center-column gap-6"
-          >
-            <img
-              src="@/assets/img/event.png"
-              width="250"
-              height="200"
-              w-full
-              alt="first item"
-            />
-            <h1 font-700>رویداد شماره 1</h1>
-            <p text-xs font-400>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است.
-            </p>
-            <a font-700 text-sm flex-center-row class="btn w-35 btn-primary">
-              مشاهده
-            </a>
-          </div>
-          <div
-            v-motion-slide-visible-left
-            class="card flex-center-column gap-6"
-          >
-            <img
-              src="@/assets/img/event.png"
-              width="250"
-              height="200"
-              w-full
-              alt="first item"
-            />
-            <h1 font-700>رویداد شماره 1</h1>
-            <p text-xs font-400>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است.
-            </p>
-            <a font-700 text-sm flex-center-row class="btn w-35 btn-primary">
-              مشاهده
-            </a>
-          </div>
-          <!-- Center Element -->
-          <!-- We Initially Focus On This Element -->
-          <div
-            v-motion-slide-visible-left
-            class="card flex-center-column gap-6"
-          >
-            <img
-              src="@/assets/img/event.png"
-              width="250"
-              height="200"
-              w-full
-              alt="first item"
-            />
-            <h1 font-700>رویداد شماره 1</h1>
-            <p text-xs font-400>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است.
-            </p>
-            <a font-700 text-sm flex-center-row class="btn w-35 btn-primary">
-              مشاهده
-            </a>
-          </div>
+          <!--  -->
+          <NewsComponent :item="item" v-for="item in items" :key="item.id" />
+          <!--  -->
         </div>
       </div>
     </div>
