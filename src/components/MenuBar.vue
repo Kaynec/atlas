@@ -25,12 +25,12 @@ onClickOutside(target, () => {
     <i
       v-if="!isDropDownOpened"
       tabindex="0"
-      class="i-material-symbols:keyboard-arrow-down-rounded mt-2 btn"
+      class="i-material-symbols:keyboard-arrow-down-rounded mt-2 btn !text-dark"
     />
     <i
       v-else
       tabindex="0"
-      class="i-material-symbols:keyboard-arrow-up-rounded mt-2 btn"
+      class="i-material-symbols:keyboard-arrow-up-rounded mt-2 btn !text-dark"
     />
 
     <ul
@@ -39,12 +39,12 @@ onClickOutside(target, () => {
     >
       <li v-for="link in links" :key="link.name">
         <router-link
-          to="home"
+          :to="link.path"
           class="text-xs text-dark"
           transition-all
           transition-350
           font-500
-          hover="!text-blue"
+          hover="!text-primary"
         >
           <span w-2 h-2 rounded-full bg="#00A1DD" />
           {{ link.name }}

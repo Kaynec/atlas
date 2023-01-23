@@ -1,16 +1,17 @@
-import path from 'path'
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Unocss from 'unocss/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+import path from "path";
+import { defineConfig } from "vite";
+import Vue from "@vitejs/plugin-vue";
+import Pages from "vite-plugin-pages";
+import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
+import Unocss from "unocss/vite";
+import VueMacros from "unplugin-vue-macros/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@/': `${path.resolve(__dirname, 'src')}/`,
+      "@/": `${path.resolve(__dirname, "src")}/`,
     },
   },
   plugins: [
@@ -27,22 +28,17 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
-      imports: [
-        'vue',
-        'vue/macros',
-        'vue-router',
-        '@vueuse/core',
-      ],
+      imports: ["vue", "vue/macros", "vue-router", "@vueuse/core"],
       dts: true,
-      dirs: [
-        './src/composables',
-      ],
+      dirs: ["./src/composables"],
       vueTemplate: true,
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/vite-plugin-components
     Components({
       dts: true,
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/unocss
@@ -50,4 +46,4 @@ export default defineConfig({
 
     Unocss(),
   ],
-})
+});

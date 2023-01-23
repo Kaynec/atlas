@@ -20,6 +20,11 @@ export default defineConfig({
       "center-absolute",
       "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
     ],
+    [
+      "custom-arrow",
+      "p-4 rounded bg-gradient-to-r from-#FFFFFF to-#[rgba(255,255,255,0.49)] absolute z-9999 top-50% cursor-pointer",
+    ],
+    ["container-custom", "container px-4 lg:px-0"],
   ],
   theme: {
     // ...
@@ -27,7 +32,7 @@ export default defineConfig({
       dark: "#212529",
       light: "#6C757D",
       primary: "#0D6EFD",
-      blueLight: "#0094FF",
+      secondary: "#0094FF",
     },
   },
 

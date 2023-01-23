@@ -1,6 +1,7 @@
 <template>
-  <button class="btn btn-primary bg-white bg-blue text-blue b-blue btn-outline rounded w-full">
+  <button
+    class="btn btn-primary bg-white bg-primary text-primary b-primary btn-outline rounded w-full"
+  >
     ورود با گوگل اکانت
   </button>
 </template>
-
